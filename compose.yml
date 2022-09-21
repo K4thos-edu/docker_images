@@ -1,0 +1,33 @@
+# version of docker compose format
+version: '3'
+
+services:
+  nginx:
+    container_name: nginx-alpine
+    hostname: nginx
+    image: nginx:alpine
+    build: ./nginx_image
+    # mounting image dir so that any changes made outside container automatically affect it
+    volumes:
+      - ./nginx_image:/var/lib/nginx/html
+    ports:
+      - 80:80
+      - 8180-8182:8180-8182
+  apache:
+    container_name: apache-alpine
+    hostname: apache
+    image: apache:alpine
+    build: ./apache_image
+    volumes:
+      - ./apache_image:/var/www/localhost/htdocs
+    ports:
+      - 8080:80
+    depends_on:
+      - nginx
+  gohostname:
+    container_name: gohostname-scratch
+    hostname: gohostname
+    image: gohostname:scratch
+    build: ./gohostname_image
+    ports:
+      - 8280:80

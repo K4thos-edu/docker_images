@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Docker container services test (nginx+apache2+golang)</title>
+</head>
+<body>
+<h1>Docker container services test (nginx+apache2+golang)</h1>
+
+<ul>
+  <li>To start nginx load balancer test (upstream listen at port 8180) <a href="http://k4thos.hopto.org:8180">click here</a>.</li>
+  <li>To view page hosted on apache2 container (port 80, same as nginx container) <a href="http://k4thos.hopto.org/apache">click here</a>.</li>
+  <li>To view indexed file list for download (inside nginx container, proxy pass) <a href="http://k4thos.hopto.org/download">click here</a>.</li>
+  <li>Nginx location+regexp proxy passing can be tested by adding /any_text_you_want to address, suffixed with .jpg / .png /.bmp (ex. <a href="http://k4thos.hopto.org/image.png"><em>http://k4thos.hopto.org/image.png</em></a>).</li>
+  <li>To start networking test that displays hostname (via golang webserver container, size optimized with multi-stage build) <a href="http://k4thos.hopto.org:8280">click here</a>.</li>
+</ul> 
+
+</body>
+</html>
